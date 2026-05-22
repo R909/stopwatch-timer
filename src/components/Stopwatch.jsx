@@ -107,12 +107,19 @@ const Stopwatch = () => {
             aria-label="Reset"
             onClick={() => pulseBtn("reset")}
           >
-            <span className="flex h-10 w-10 items-center justify-center rounded-full border border-white/55 bg-white/55 transition group-hover:bg-white/85 md:h-11 md:w-11">
+            <span
+              className={`flex h-10 w-10 items-center justify-center rounded-full border transition md:h-11 md:w-11 ${
+                activeBtn === "reset"
+                  ? "bg-gradient-to-br from-[#41dcc2] to-[#6ce7d2] text-white shadow-[0_10px_28px_rgba(65,220,194,0.45)] border-transparent"
+                  : "border-white/55 bg-white/55 group-hover:bg-white/85"
+              }`}
+            >
               <RotateCcw size={18} />
             </span>
 
             <span className="text-[10px] md:text-xs">Reset</span>
           </button>
+
           <button
             className={`group flex w-[64px] flex-col items-center gap-1 text-[#2d5b5f] transition-transform duration-150 md:w-[82px] ${
               activeBtn === "pause" ? "scale-110" : "scale-100"
@@ -120,11 +127,19 @@ const Stopwatch = () => {
             aria-label="Pause"
             onClick={() => pulseBtn("pause")}
           >
-            <span className="flex h-[52px] w-[52px] items-center justify-center rounded-full bg-gradient-to-br from-[#41dcc2] to-[#6ce7d2] text-white shadow-[0_10px_28px_rgba(65,220,194,0.45)] transition group-hover:scale-[1.03] md:h-[62px] md:w-[62px]">
+            <span
+              className={`flex h-[52px] w-[52px] items-center justify-center rounded-full transition md:h-[62px] md:w-[62px] ${
+                activeBtn === "pause"
+                  ? "bg-gradient-to-br from-[#41dcc2] to-[#6ce7d2] text-white shadow-[0_10px_28px_rgba(65,220,194,0.45)]"
+                  : "border border-white/55 bg-white/55 text-[#2d5b5f] group-hover:bg-white/85"
+              }`}
+            >
               <Pause size={24} />
             </span>
+
             <span className="text-[10px] md:text-xs">Pause</span>
           </button>
+
           <button
             className={`group flex w-[64px] flex-col items-center gap-1 text-[#356064] transition-transform duration-150 md:w-[70px] ${
               activeBtn === "start" ? "scale-110" : "scale-100"
@@ -132,9 +147,16 @@ const Stopwatch = () => {
             aria-label="Start"
             onClick={() => pulseBtn("start")}
           >
-            <span className="flex h-10 w-10 items-center justify-center rounded-full border border-white/55 bg-white/55 transition group-hover:bg-white/85 md:h-11 md:w-11">
+            <span
+              className={`flex h-10 w-10 items-center justify-center rounded-full transition md:h-11 md:w-11 ${
+                activeBtn === "start"
+                  ? "bg-gradient-to-br from-[#41dcc2] to-[#6ce7d2] text-white shadow-[0_10px_28px_rgba(65,220,194,0.45)]"
+                  : "border border-white/55 bg-white/55 group-hover:bg-white/85"
+              }`}
+            >
               <Play size={16} />
             </span>
+
             <span className="text-[10px] md:text-xs">Start</span>
           </button>
         </div>

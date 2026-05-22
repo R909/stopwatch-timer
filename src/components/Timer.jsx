@@ -53,23 +53,17 @@ const TimerComponent = () => {
     if (time <= 0) {
       setTime(totalSeconds);
     }
-
     setIsRunning(true);
   };
-
   const pause = () => {
     setIsRunning(false);
-
     clearInterval(intervalRef.current);
   };
 
   const reset = () => {
     clearInterval(intervalRef.current);
-
     setIsRunning(false);
-
     setTime(0);
-
     setHours("00");
     setMinutes("00");
     setSeconds("00");
@@ -77,18 +71,14 @@ const TimerComponent = () => {
 
   useEffect(() => {
     if (!isRunning) return;
-
     intervalRef.current = setInterval(() => {
       setTime((prev) => {
         // stop at 0
         if (prev <= 1) {
           clearInterval(intervalRef.current);
-
           setIsRunning(false);
-
           return 0;
         }
-
         return prev - 1;
       });
     }, 1000);
@@ -103,7 +93,6 @@ const TimerComponent = () => {
 
   const pulseBtn = (name) => {
     setActiveBtn(name);
-
     switch (name) {
       case "start":
         start();
@@ -128,31 +117,22 @@ const TimerComponent = () => {
 
   const handleHoursChange = (value) => {
     if (isRunning) return;
-
     const normalized = normalize(value, 99);
-
     setHours(normalized);
-
     syncTime(normalized, minutes, seconds);
   };
 
   const handleMinutesChange = (value) => {
     if (isRunning) return;
-
     const normalized = normalize(value, 59);
-
     setMinutes(normalized);
-
     syncTime(hours, normalized, seconds);
   };
 
   const handleSecondsChange = (value) => {
     if (isRunning) return;
-
     const normalized = normalize(value, 59);
-
     setSeconds(normalized);
-
     syncTime(hours, minutes, normalized);
   };
 
@@ -161,7 +141,6 @@ const TimerComponent = () => {
       Number(hrs) * 3600 +
       Number(mins) * 60 +
       Number(secs);
-
     setTime(total);
   };
 
@@ -236,7 +215,7 @@ const TimerComponent = () => {
           </label>
         </div>
 
-        <div className="mt-2 flex items-center gap-4 rounded-[28px] border border-white/45 bg-white/40 px-4 py-3 shadow-[0_8px_26px_rgba(30,95,87,0.14)] backdrop-blur-xl md:mt-4 md:gap-6 md:px-7 md:py-4">
+        <div className="mt-2 flex justify-around items-center gap-4 rounded-[28px] border border-white/45 bg-white/40 px-4 py-3 shadow-[0_8px_26px_rgba(30,95,87,0.14)] backdrop-blur-xl md:mt-4 md:gap-6 md:px-7 md:py-4">
           <button
             className={`group flex w-[64px] flex-col items-center gap-1 text-[#356064] transition-transform duration-150 md:w-[70px] ${
               activeBtn === "reset" ? "scale-110" : "scale-100"

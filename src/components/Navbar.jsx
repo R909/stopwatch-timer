@@ -28,7 +28,7 @@ const Navbar = () => {
             <Timer size={13} />
             <span className="font-semibold">Focus Mode</span>
             <span className="text-white/35 mx-1">·</span>
-            <span className="text-[#4f7d7e]">Session 3 of 4</span>
+            <span className="text-[#4f7d7e] font-semibold">Find your rhythm</span>
           </div>
  
           <div className="flex items-center gap-2 rounded-full border border-white/45 bg-white/38 px-4 py-2 text-xs text-[#325d60] backdrop-blur-xl">
